@@ -3,16 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src=""></script>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<style>
+	div{
+		border : 1px solid black;
+	}
+	#d1{
+		width : 99%;
+		height : 220px;
+		display: block;
+	}
+	#dnav{
+		width : 99%;
+		height : 80px;
+		display: block;
+	}
+	#d2, #d3, #d4{
+		width : 33%;
+		height : 580px;
+		display : inline-block;
+		float: left;
+	}
+</style>
 </head>
 <body>
-<h1>Welcome</h1>
-<h1>Welcome</h1>
-<h1>Welcome</h1>
-<h1>Welcome</h1>
-<h1>Welcome</h1>
-<h1>Welcome</h1>
-<a href="/Mypage/WebContent/main/test01.jsp">goTest</a>
+<div id="d1">
+
+</div>
+
+<div id="dnav">
+
+</div>
+
+<div id="d2">
+	<h2>나의 공부 수첩</h2>
+		<h4>Programming Languages</h4>
+	<ul> 
+		<li><a>Java</a></li>
+		<li><a>SQL</a></li>
+		<li><a>Web(Html,Css,JS)</a></li>
+		<li><a>JSP</a></li>
+		<li><a>Python</a></li>
+		<li><a>other</a></li>
+	</ul>
+	
+		<h4>Knowledge</h4>
+	<ul> 
+		<li><a>정보처리기사 필기</a></li>
+		<li><a>정보처리기사 실기</a></li>
+		<li><a>other</a></li>
+	</ul>
+</div>
+
+<div id="d3">
+	<h2>나의 DDIT 생활</h2>
+	<ul>
+		<li><a>Project1</a></li>
+		<li><a>Project2</a></li>
+		<li><a>Project3</a></li>
+		<li><a>Tips</a></li>
+	</ul>
+</div>
+
+<div id="d4">
+	<h2>메뉴 구상중</h2>
+</div>
+
 </body>
 </html>
 
