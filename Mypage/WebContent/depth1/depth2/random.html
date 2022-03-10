@@ -16,7 +16,7 @@
 			for(i = 0; i < cnt; i++){
 				code += "항목을 입력해주세요<input type='text' name='cont" + i + "'><br>"
 			}
-			code += "<input type='button' id='btn' value='추첨'>";
+			code += "<br><input type='button' id='btn' value='추첨'> <br><br>";
 			
 			$("#ff").append(code);
 		})
@@ -30,7 +30,7 @@
 			pcode += "<div class='progress-bar' style='width:" + count + "%' id='pb'></div>";
 			pcode += "</div>"
 			
-			$("#d3").html(pcode);
+			$("#d3").append(pcode);
 			
 			for(count = 0; count <= 100; count++){
 				setTimeout(() => {
@@ -39,17 +39,18 @@
 				}, 20);
 			}
 			
-			f = $("#ff").serialize()
-			//ff = JSON.stringify(f);
+/* 			f = $("#ff").serialize().replace(/%/g,"%25")
+			console.log(f)
+			//ff = JSON.stringify(f); */
 			
 			$.ajax({
 				url : "http://localhost/Mypage/random.do",
 				data : {
-					"data" : f
-				},
+					"data" : $("#ff").serialize().replace(/%/g,'%25')
+					},
 				method : "post",
 				success : function(res) {
-					alert(res.sw)
+					$("#d3").append(res.sw);
 				},
 				error : function(jqXHR, textStatus, errorThrown) {
 					console.log(jqXHR);
@@ -57,7 +58,7 @@
 					console.log(errorThrown);
 				},
 				dataType : "json"
-			})
+			}) 
 		
 			
 		})

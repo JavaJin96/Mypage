@@ -2,6 +2,7 @@ package funnyFunction;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,8 +19,15 @@ public class random extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("application/json; charset=utf-8");
-		String data = request.getParameter("data");
+		
+		//String data = request.getParameter("data");
+		//String decodedData = URLDecoder.decode(data, "UTF-8");
+		String data = URLDecoder.decode( request.getParameter("data"), "UTF-8");
+
+
+		
 		
 		String datas [] = data.split("&");
 		List<String> list = new ArrayList<>();
@@ -31,7 +39,12 @@ public class random extends HttpServlet {
 		
 		Collections.shuffle(list);
 		
-		res = "{ \"sw\" : \""+ list.get(0) +"\"  }";
+		int li = list.get(0).indexOf("=") + 1;
+		String result = list.get(0).substring(li);
+		
+		System.out.println(result);
+		
+		res = "{ \"sw\" : \""+ result +"\"  }";
 		PrintWriter out = response.getWriter();
 		out.println(res);
 		
